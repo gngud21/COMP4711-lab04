@@ -21,5 +21,8 @@ class First extends Application
 
 		$this->render();
 	}
+	public function zzz(){
+		$this->index();	
+  	}
 
 }
