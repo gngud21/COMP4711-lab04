@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends Application
+class Hogwarts extends Application
 {
 
 	function __construct()
@@ -29,5 +29,24 @@ class Welcome extends Application
 
 		$this->render();
 	}
+	
+	public function shucks()
+	{
+		$record = $this->quotes->get(2);
+		$this->data = array_merge($this->data, $record);
+		$this->data['pagebody'] = 'justone';
+
+		$this->render();
+	}
+        
+        //Show a random quote if a bogus one is requested
+        public function random(){
+            $min = 1;    
+            $max = 6;
+            $record = $this->quotes->get(rand($min,$max));
+            $this->data = array_merge($this->data, $record);
+            $this->data['pagebody'] ='justone';
+            $this->render();
+        }
 
 }
