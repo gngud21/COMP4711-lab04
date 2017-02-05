@@ -38,5 +38,15 @@ class Welcome extends Application
 
 		$this->render();
 	}
+        
+        //Show a random quote if a bogus one is requested
+        public function random(){
+            $min = 1;    
+            $max = 6;
+            $record = $this->quotes->get(rand($min,$max));
+            $this->data = array_merge($this->data, $record);
+            $this->data['pagebody'] ='justone';
+            $this->render();
+        }
 
 }
